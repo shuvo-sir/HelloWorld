@@ -3,13 +3,12 @@ import { StyleSheet, Text, View } from 'react-native';
 
 export default function App(){
     return (
-        <View style={style.container}>
-            <Text>My name is Shuvo Halder</Text>
-            <StatusBar style='auto'></StatusBar>
+        <View style = { style.container}>
+            <Text>Ami Payel Bolod </Text>
+            <StatusBar style='auto'/>
         </View>
     );
 }
-
 
 const style = StyleSheet.create({
     container: {

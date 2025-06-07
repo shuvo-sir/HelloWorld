@@ -1,48 +1,50 @@
-import { View, Image, ScrollView, Text, Button} from "react-native";
+import React, { lazy, use, useState } from "react";
+import { View, Image, ScrollView, Text, Button, Modal, StatusBar, ActivityIndicator} from "react-native";
 
-export default function App(){
+export default function ModalScreen() {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
   return (
-    <View style={{ flex: 1, backgroundColor: "plum", justifyContent: "center", alignItems: "center", padding: 40}}>
-      <ScrollView>
+    <View style={{ flex: 1, backgroundColor: "plum", padding: 40 }}>
+     
+      <ScrollView contentContainerStyle={{ alignItems: "center", justifyContent: "center" }}>
+        <ActivityIndicator size="large" color="midnightblue" animating={false}/>
+        <Image
+          source={require("../assets/images/adaptive-icon.png")}
+          style={{ width: 300, height: 300 }}
+        />
 
-      
-      <Image 
-        source={require("../assets/images/adaptive-icon.png")} 
-        style={{ width: 300, height: 300 }} 
-      />
+        <Button
+          title="Press"
+          onPress={() => setIsModalVisible(true)}
+          color="midnightblue"
+        />
 
-      <Text style={{justifyContent: "center", padding: 2}}>
-        এক কোটি বছর হয় তোমাকে দেখি না
-        একবার তোমাকে দেখতে পাবো
-        এই নিশ্চয়তাটুকু পেলে-
-        বিদ্যাসাগরের মতো আমিও সাঁতরে পার
-        হবো ভরা দামোদর
-        … কয়েক হাজার বার পাড়ি দেবো ইংলিশ চ্যানেল;
-        তোমাকে একটিবার দেখতে পাবো এটুকু ভরসা পেলে
-        অনায়াসে ডিঙাবো এই কারার প্রাচীর,
-        ছুটে যবো নাগরাজ্যে পাতালপুরীতে
-        কিংবা বোমারু বিমান ওড়া
-        শঙ্কিত শহরে।
-        যদি জানি একবার দেখা পাবো তাহলে উত্তপ্ত মরুভূমি
-        অনায়াসে হেঁটে পাড়ি দেবো,
-        কাঁটাতার ডিঙাবো সহজে, লোকলজ্জা ঝেড়ে মুছে
-        ফেলে যাবো যে কোনো সভায়
-        কিংবা পার্কে ও মেলায়;
-        একবার দেখা পাবো শুধু এই আশ্বাস পেলে
-        এক পৃথিবীর এটুকু দূরত্ব
-        আমি অবলীলাক্রমে পাড়ি দেবো।
-        তোমাকে দেখেছি কবে, সেই কবে, কোন বৃহস্পতিবার
-        আর এক কোটি বছর হয় তোমাকে দেখি না।
-      </Text>
-      <Image 
-        source={require("../assets/images/adaptive-icon.png")} 
-        style={{ width: 300, height: 300 }} 
-      />
-      <Button
-        title="Press"
-        onPress={() => console.log("Button Pressed")}
-        color="midnightblue"    
-      />
+
+        <Modal
+          visible={isModalVisible}
+          animationType="slide"
+          transparent={false}
+        >
+          <View style={{ flex: 1, backgroundColor: "lightblue", padding: 20 }}>
+            <ScrollView>
+              <ActivityIndicator size="large" color="black" animating={true}/>
+              <Text style={{ fontSize: 16, lineHeight: 24 }}>
+                এক কোটি বছর হয় তোমাকে দেখি না
+                একবার তোমাকে দেখতে পাবো...
+                {/* [rest of your poem here] */}
+              </Text>
+
+              <View style={{ marginTop: 20 }}>
+                <Button
+                  title="Close"
+                  color="midnightblue"
+                  onPress={() => setIsModalVisible(false)}
+                />
+              </View>
+            </ScrollView>
+          </View>
+        </Modal>
       </ScrollView>
     </View>
   );

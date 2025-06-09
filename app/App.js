@@ -1,4 +1,5 @@
 import React, { lazy, use, useState } from "react";
+import Greet from "../components/Greet";
 import { View, Image, ScrollView, Text, Button, Modal, StatusBar, ActivityIndicator} from "react-native";
 
 export default function ModalScreen() {
@@ -6,7 +7,7 @@ export default function ModalScreen() {
 
   return (
     <View style={{ flex: 1, backgroundColor: "plum", padding: 40 }}>
-     
+     <Greet name="Shuvo"></Greet>
       <ScrollView contentContainerStyle={{ alignItems: "center", justifyContent: "center" }}>
         <ActivityIndicator size="large" color="midnightblue" animating={false}/>
         <Image

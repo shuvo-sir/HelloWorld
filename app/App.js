@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
         flexWrap: "wrap",
         borderWidth: 6,
         borderColor: "red",
-        justifyContent: "space-evenly"
+        justifyContent: "space-evenly",
+        alignContent: "space-evenly",
     },
 });

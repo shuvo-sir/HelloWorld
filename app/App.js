@@ -19,7 +19,9 @@ export default function App() {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        // flex: 1,
+        height: 500,
+        flexWrap: "wrap",
         borderWidth: 6,
         borderColor: "red",
         justifyContent: "space-evenly"

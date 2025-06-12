@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     box: {
         backgroundColor: "white",
         padding: 20,
+        borderRadius: 10,
     },
     text: {
         fontSize: 24,

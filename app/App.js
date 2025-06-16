@@ -1,25 +1,11 @@
-import { useState, useEffect } from "react";
-import { StyleSheet, View, Text, Dimensions} from "react-native";
+
+import { StyleSheet, View, Text, useWindowDimensions} from "react-native";
 
 
 
 export default function App() {
-    const [dimensions, setDimensions] = useState({
-        window: Dimensions.get("window"),
-    });
-
-    useEffect(() => {
-        const subscription = Dimensions.addEventListener("change", ({window}) => {
-            setDimensions({window});
-        });
-        return () => subscription?.remove();
-    });
-
-    const {window} = dimensions;
-    const windoWidth = window.width;
-    const windowHeight = window.height;
-
-
+    const windoWidth = useWindowDimensions().width;
+    const windowHeight = useWindowDimensions().height;
     return(
         <View style={styles.container}>
             <View style= {[styles.box, {
@@ -32,8 +18,7 @@ export default function App() {
     );
 }
 
-// const windoWidth = Dimensions.get("window").width;
-// const windowHeight = Dimensions.get("window").height;
+
 
 const styles = StyleSheet.create({
     container: {

@@ -1,30 +1,38 @@
-import { StyleSheet, View } from "react-native";
-import Box from "../constants/Box";
+import { StyleSheet, View, Text, Dimensions} from "react-native";
+
 
 export default function App() {
     return(
         <View style={styles.container}>
-            <Box style={{backgroundColor: "#8e9b00", flexShrink: 1,}}>Box 1 shrink</Box>
-            <Box style={{backgroundColor: "#f39c12", flexShrink: 1,}}>Box 2 shrink</Box>
-            {/* <Box style={{backgroundColor: "#e74c3c"}}>Box 3</Box>
-            <Box style={{backgroundColor: "#2ecc71"}}>Box 4</Box>
-            <Box style={{backgroundColor: "#3498db"}}>Box 5</Box>
-            <Box style={{backgroundColor: "#9b59b6"}}>Box 6</Box>
-            <Box style={{backgroundColor: "#1abc9c"}}>Box 7</Box>
-            <Box style={{backgroundColor: "#e67e22"}}>Box 8</Box>
-            <Box style={{backgroundColor: "#34495e"}}>Box 9</Box> */}
+            <View style= {styles.box}>
+                <Text style={styles.text}>Welcome</Text>
+            </View>
         </View>
     );
 }
 
+const windoWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: "row",
-        alignItems: "flex-start",
-        width: 300,
+        flexWrap: "wrap",
         borderWidth: 6,
         borderColor: "red",
-        borderRadius: 30,
+        alignItems: "flex-end",
+        justifyContent: "center",
+        alignContent: "center",
+        borderRadius: 10,
+    },
+    box: {
+        width: windoWidth > 500 ? "70%" : "90%",
+        height: windowHeight > 600 ? "60%" : "90%",
+        backgroundColor: "red",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    text: {
+        fontSize: windoWidth > 500 ? 50 : 24,
     },
 });

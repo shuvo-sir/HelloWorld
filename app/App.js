@@ -1,45 +1,39 @@
 
-import { StyleSheet, View, Text, useWindowDimensions} from "react-native";
+import { StyleSheet, View, Text, useWindowDimensions, SafeAreaView} from "react-native";
 
 
 
 export default function App() {
-    const windoWidth = useWindowDimensions().width;
-    const windowHeight = useWindowDimensions().height;
+    
     return(
+        <SafeAreaView style={styles.safeContainer}>
         <View style={styles.container}>
-            <View style= {[styles.box, {
-                width: windoWidth > 500 ? "70%" : "90%",
-                height: windowHeight > 600 ? "60%" : "90%",
-                }]}>
-                <Text style={{ fontSize: windoWidth > 500 ? 50 : 24,}}>Welcome</Text>
+            <View style= {styles.box}>
+                <Text style={styles.text}>Welcome</Text>
             </View>
         </View>
+        </SafeAreaView>
     );
 }
 
 
 
 const styles = StyleSheet.create({
+    safeContainer: {
+        flex: 1,
+        backgroundColor: "plum",
+    },
     container: {
         flex: 1,
-        flexWrap: "wrap",
-        borderWidth: 6,
-        borderColor: "red",
-        alignItems: "flex-end",
-        justifyContent: "center",
-        alignContent: "center",
-        borderRadius: 10,
+        backgroundColor: "plum",
+        
     },
     box: {
-        // width: windoWidth > 500 ? "70%" : "90%",
-        // height: windowHeight > 600 ? "60%" : "90%",
-        backgroundColor: "red",
-        justifyContent: "center",
-        alignItems: "center",
+        padding: 20,
     },
-    // text: {
-    //     fontSize: windoWidth > 500 ? 50 : 24,
-
-    // },
+    text: {
+        fontSize: 24,
+        fontWeight: "bold",
+        textAlign: "center",
+    },
 });
